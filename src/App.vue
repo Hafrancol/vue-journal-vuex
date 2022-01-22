@@ -1,16 +1,29 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+	<counter-vuex></counter-vuex>
+	<button @click="incrementar">Incrementar +1</button>
+	<button @click="incrementarBy">Incrementar +5</button>
+	
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CounterVuex from '@/components/counterVuex.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+		CounterVuex
+  },
+	methods:{
+		incrementar(){
+			this.$store.commit('counter/increment')
+		},
+		incrementarBy(){
+			this.$store.commit('counter/incrementarBy',5)
+		},
+	
+	}
 }
 </script>
 
